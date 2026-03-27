@@ -1,0 +1,133 @@
+:root {
+  --rainbow-grad: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #8b00ff
+  );
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--rainbow-grad);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid #00ffcc;
+  box-shadow: 0 0 6px rgba(0, 255, 204, 0.5);
+}
+
+.error-text {
+  color: #ff6b6b;
+  font-size: 12px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.input-error {
+  border: 1px solid #ff6b6b;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--rainbow-grad);
+  background-size: 200%;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.2);
+  transform: scale(1.02);
+}
+
+button:disabled {
+  background: #444;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.status-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.progress-bg {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--rainbow-grad);
+  transition: width 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 500px) {
+  .app-container {
+    margin: 10px;
+    padding: 20px;
+  }
+}
