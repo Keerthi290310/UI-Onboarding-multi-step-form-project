@@ -1,7 +1,7 @@
 name: Deploy React App
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 permissions:
   contents: read
   pages: write
@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-      - name: Install dependencies
-        run: npm install
-      - name: Build project
-        run: npm run build
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
